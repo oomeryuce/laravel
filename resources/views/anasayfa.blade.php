@@ -7,6 +7,38 @@
 
     </head>
     <body>
-                    Naber?
+      @php
+      $yas= 25;
+      @endphp
+      Naber {{$isim . ' ' . $soyisim}}? {{$yas}} yaşındasın!
+      <hr>
+      @if ($isim == 'Ömer')
+      Hoşgeldin KRAL!
+      @else
+      Hoşgeldin Moruq
+      @endif
+      <hr>
+      @switch($isim)
+        @case('Ömer')
+        Hoşgeldin Kral!
+        @break
+        @default
+        Naber?
+      @endswitch
+      <hr>
+      @for ($i = 0; $i <= 10; $i++)
+        Döngü: {{$i}}
+      @endfor
+      <hr>
+      @foreach ($isimler as $isim)
+        {{$isim . ($isim !== end($isimler)? ',' : '')}}
+      @endforeach
+      <hr>
+      @foreach ($kullanicilar as $kullanici)
+        @continue($kullanici['id'] ==1)
+        <li>{{$kullanici['id'] . ' - ' .$kullanici['kullanici_adi']}}</li>
+        @break($kullanici['id']==4)
+      @endforeach
+
     </body>
 </html>
