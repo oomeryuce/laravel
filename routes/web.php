@@ -13,6 +13,6 @@
 
 Route::get('/', 'AnasayfaController@index')->name('anasayfa');
 
-Route::get('/merhaba', function(){
-  return "Merhaba";
-});
+Route::view('/kategori' , 'kategori');
+Route::view('/urun' , 'urun');
+Route::view('/sepet' , 'sepet');
